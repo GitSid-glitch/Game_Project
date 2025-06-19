@@ -60,12 +60,12 @@ function moveObstacles() {
   if (isColliding(x, y, gx, gy)) return endGame(true);
 }
 
-// More accurate hit detection using modified bounding rectangle
+// More accurate hit detection 
 function checkCollision() {
   if (!gameRunning) return;
   
   const playerRect = player.getBoundingClientRect();
-  // Using a shrink factor to create a smaller detection box so collisions are more precise
+  // Using a shrink factor 
   const shrinkFactor = 0.7;
   const reducedPlayerRect = {
     left: playerRect.left + (playerRect.width * (1 - shrinkFactor)) / 2,
@@ -134,7 +134,7 @@ function setupGame() {
   goal.dataset.y = gy;
   goal.style.transform = `translate(${gx * gridSize}px, ${gy * gridSize}px)`;
 
-  // No overlapping of start or goal of obstacles
+  // No overlapping of start or goal
   for (let i = 0; i < bombCount; i++) {
     let ox, oy;
     do {
